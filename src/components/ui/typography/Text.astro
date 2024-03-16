@@ -1,0 +1,21 @@
+---
+import classNames from "classnames";
+
+type Props = {
+  className?: string;
+  size?: "base" | "sm" | "xs";
+};
+
+const { size, className: classNameProp } = Astro.props;
+const className = classNames(
+  "text-stone-800 font-sans",
+  {
+    "text-base": size === "base",
+    "text-sm": size === "sm",
+    "text-xs": size === "xs",
+  },
+  classNameProp
+);
+---
+
+<p class={className}><slot /></p>

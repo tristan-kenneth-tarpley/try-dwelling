@@ -1,0 +1,66 @@
+---
+import classNames from "classnames";
+import Monospace from "./typography/Monospace.astro";
+interface Props {
+  className?: string;
+  variant?: "primary" | "outline" | "ghost" | "danger";
+  rel?: string;
+  target?: string;
+  href?: string;
+  id?: string;
+  type?: "button" | "submit";
+  size?: "sm" | "base" | "lg";
+}
+
+const {
+  id,
+  href,
+  rel,
+  target,
+  variant = "primary",
+  type = "button",
+  size = "base",
+} = Astro.props;
+
+const classes = classNames(
+  "rounded-md px-2 py-4 border border-solid duration-200",
+  {
+    primary:
+      "bg-yellow-400 hover:bg-stone-800 hover:text-white border-stone-800",
+    outline:
+      "bg-transparent hover:bg-stone-800 hover:text-white border-stone-800",
+    ghost: "border-transparent hover:bg-stone-800 hover:text-white",
+    danger: "border-red-500 bg-red-500 hover:bg-red-600 hover:text-white",
+  }[variant],
+  {
+    sm: "px-1 py-2",
+    base: "px-1 py-2",
+    lg: "px-2 py-4",
+  }[size]
+);
+
+const monospaceSize =
+  (
+    {
+      sm: "xs",
+      base: "sm",
+      lg: "base",
+    } as const
+  )[size] ?? "base";
+---
+
+{
+  href ? (
+    <a id={id} href={href} class={classes} target={target} rel={rel}>
+      <Monospace className="uppercase" size={monospaceSize}>
+        <slot />
+      </Monospace>
+    </a>
+  ) : (
+    <button id={id} class={classes} type={type}>
+      <Monospace className="uppercase" size={monospaceSize}>
+        <slot />
+      </Monospace>
+    </button>
+  )
+}

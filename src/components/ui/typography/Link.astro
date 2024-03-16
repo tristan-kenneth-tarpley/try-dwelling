@@ -1,0 +1,28 @@
+---
+import classNames from "classnames";
+import Monospace from "./Monospace.astro";
+
+interface Props {
+  href: string;
+  variant?: "text" | "mono";
+}
+
+const { href, variant = "text" } = Astro.props;
+
+const classes = classNames("underline hover:text-stone-600", {
+  "font-sans": variant === "text",
+  uppercase: variant === "mono",
+});
+---
+
+<a href={href} class={classes}>
+  {
+    variant === "mono" ? (
+      <Monospace size="sm">
+        <slot />
+      </Monospace>
+    ) : (
+      <slot />
+    )
+  }
+</a>
