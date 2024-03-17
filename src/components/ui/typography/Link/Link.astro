@@ -1,0 +1,13 @@
+---
+import { linkClassName, type LinkProps } from "./styles";
+
+type Props = LinkProps;
+
+const { href, variant = "text" } = Astro.props;
+
+const classes = linkClassName({ variant, href });
+---
+
+<a href={href} class={classes}>
+  <slot />
+</a>

@@ -1,0 +1,20 @@
+---
+import { type ButtonProps, buttonClassName } from "./styles";
+
+type Props = ButtonProps;
+const { href, id, target, rel, type } = Astro.props;
+
+const className = buttonClassName(Astro.props);
+---
+
+{
+  href ? (
+    <a id={id} href={href} class={className} target={target} rel={rel}>
+      <slot />
+    </a>
+  ) : (
+    <button id={id} class={className} type={type}>
+      <slot />
+    </button>
+  )
+}

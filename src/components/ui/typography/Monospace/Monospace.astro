@@ -1,0 +1,6 @@
+---
+import { monospaceClassName, type MonospaceProps } from "./styles";
+type Props = MonospaceProps;
+---
+
+<span class={monospaceClassName(Astro.props)}><slot /></span>
