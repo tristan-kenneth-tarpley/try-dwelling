@@ -11,6 +11,6 @@ export const linkClassName = ({variant}: LinkProps) => classNames(
   {
     "font-sans": variant === "text",
     uppercase: variant === "mono",
-    [monospaceClassName({ size: "sm" })]: variant === "mono",
+    [monospaceClassName({ size: "base" })]: variant === "mono",
   }
 );

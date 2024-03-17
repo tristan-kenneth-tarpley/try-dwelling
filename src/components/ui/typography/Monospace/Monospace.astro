@@ -1,6 +1,16 @@
 ---
+import classNames from "classnames";
 import { monospaceClassName, type MonospaceProps } from "./styles";
-type Props = MonospaceProps;
+import {
+  sharedTypographyStyles,
+  type SharedTypographyProps,
+} from "../sharedTypographyProps";
+type Props = MonospaceProps & SharedTypographyProps;
 ---
 
-<span class={monospaceClassName(Astro.props)}><slot /></span>
+<span
+  class={classNames(
+    monospaceClassName(Astro.props),
+    sharedTypographyStyles(Astro.props)
+  )}><slot /></span
+>

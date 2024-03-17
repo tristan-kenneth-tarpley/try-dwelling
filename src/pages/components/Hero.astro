@@ -1,0 +1,25 @@
+---
+import HeroBackground from "./HeroBackground.astro";
+import Heading from "../../components/ui/typography/Heading.astro";
+import Monospace from "../../components/ui/typography/Monospace/Monospace.astro";
+import Text from "../../components/ui/typography/Text.astro";
+import Button from "../../components/ui/Button/Button.astro";
+---
+
+<HeroBackground>
+  <div class="flex flex-col space-y-6 items-center pt-[20vh] md:w-1/2 mx-auto">
+    <Heading level={1} color="light">Build an ADU</Heading>
+    <div class="flex flex-col items-center">
+      <Monospace className="uppercase" color="light"
+        >Right | Fucking | Now</Monospace
+      >
+      <Text color="light" className="text-center">
+        The time has never been better. If you're in California and you're not
+        building a fucking ADU, then what the fuck are you doing?
+      </Text>
+      <div class="mt-4">
+        <Button>Click me to build</Button>
+      </div>
+    </div>
+  </div>
+</HeroBackground>

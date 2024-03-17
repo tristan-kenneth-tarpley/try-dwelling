@@ -1,0 +1,12 @@
+---
+import { Image } from "astro:assets";
+import assets from "../assets";
+---
+
+<div class="sticky top-0 z-10 h-[50px] bg-beige-50 w-full">
+  <div class="container h-full mx-auto w-11/12 flex items-center py-1">
+    <div class="h-full flex items-center">
+      <Image height="30" src={assets.logo} alt="logo" />
+    </div>
+  </div>
+</div>

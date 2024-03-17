@@ -28,11 +28,11 @@ export const buttonClassName = (props: ButtonProps) => {
     )[size] ?? "base";
 
   return classNames(
-    "rounded-md px-2 py-4 border border-solid duration-200",
+    "rounded-md border border-solid duration-200",
     monospaceClassName({ size: monospaceSize, className: "uppercase" }),
     {
       primary:
-        "bg-yellow-400 hover:bg-stone-800 hover:text-white border-stone-800",
+        "bg-yellow-400 hover:bg-stone-800 hover:text-white border-stone-800 hover:border-yellow-400",
       outline:
         "bg-transparent hover:bg-stone-800 hover:text-white border-stone-800",
       ghost: "border-transparent hover:bg-stone-800 hover:text-white",
@@ -40,7 +40,7 @@ export const buttonClassName = (props: ButtonProps) => {
     }[variant],
     {
       sm: "px-1 py-2",
-      base: "px-1 py-2",
+      base: "px-2 py-3",
       lg: "px-2 py-4",
     }[size]
   );

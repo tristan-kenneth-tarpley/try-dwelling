@@ -1,0 +1,40 @@
+---
+import HeroInner from "./HeroInner.astro";
+import { getImage } from "astro:assets";
+import assets from "../../assets";
+import classNames from "classnames";
+
+const optimizedLgBackground = await getImage({
+  src: assets.hero,
+  format: "webp",
+});
+
+const optimizedMdBackground = await getImage({
+  src: assets.cottage,
+  format: "webp",
+});
+
+const backgroundImgClasses = "h-full w-screen bg-cover bg-center relative";
+const showOnDesktop = "hidden md:flex";
+const showOnMobile = "flex md:hidden";
+---
+
+<section class={"w-screen h-[80vh]"}>
+  <div
+    class={classNames(backgroundImgClasses)}
+    style={`background-image: url(${optimizedMdBackground.src});`}
+  >
+    <HeroInner>
+      <slot />
+    </HeroInner>
+  </div>
+
+  <!-- <div
+    class={classNames("flex md:hidden", backgroundImgClasses)}
+    style={`background-image: url(${optimizedMdBackground.src});`}
+  >
+    <HeroInner>
+      <slot />
+    </HeroInner>
+  </div> -->
+</section>
