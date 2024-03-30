@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import classNames from "../../../utils/classNames";
 
 export interface SharedTypographyProps {
   color?: 'light' | 'dark';

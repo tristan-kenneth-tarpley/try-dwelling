@@ -2,7 +2,7 @@
 import HeroInner from "./HeroInner.astro";
 import { getImage } from "astro:assets";
 import assets from "../../assets";
-import classNames from "classnames";
+import classNames from "../../utils/classNames";
 
 const optimizedLgBackground = await getImage({
   src: assets.hero,
