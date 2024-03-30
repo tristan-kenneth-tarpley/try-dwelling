@@ -1,0 +1,18 @@
+---
+type Props = {
+  background?: "beige" | "stone";
+};
+
+const { background = "beige" } = Astro.props;
+---
+
+<div
+  class={{
+    beige: "bg-beige-100",
+    stone: "bg-stone-800",
+  }[background]}
+>
+  <div class="w-3/4 mx-auto py-24 flex flex-col space-y-16">
+    <slot />
+  </div>
+</div>

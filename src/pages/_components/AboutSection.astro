@@ -1,0 +1,44 @@
+---
+import Heading from "../../components/ui/typography/Heading.astro";
+import Text from "../../components/ui/typography/Text.astro";
+import Link from "../../components/ui/typography/Link/Link.astro";
+import SectionWrapper from "./SectionWrapper.astro";
+
+const sections = [
+  {
+    heading: "Inspired Design.",
+    text: "Every detail of the AutoCamp experience combines the best of mid-century design with modern amenities: custom-designed Airstreams, gourmet food, guided experiences, and four-star service, all curated for you to reconnect with your surroundings.",
+    link: {
+      text: "VIEW GALLERY",
+      href: "#",
+    },
+  },
+  {
+    heading: "Inspired Design.",
+    text: "Every detail of the AutoCamp experience combines the best of mid-century design with modern amenities: custom-designed Airstreams, gourmet food, guided experiences, and four-star service, all curated for you to reconnect with your surroundings.",
+    link: {
+      text: "VIEW GALLERY",
+      href: "#",
+    },
+  },
+];
+---
+
+<SectionWrapper>
+  <Heading level={2} className="w-3/4">
+    Increase your home value, reduce your carbon footprint.
+  </Heading>
+  <div class="grid grid-cols-2 gap-64">
+    {
+      sections.map(({ heading, text, link }) => (
+        <div class="flex flex-col space-y-4">
+          <Heading level={3}>{heading}</Heading>
+          <Text>{text}</Text>
+          <Link variant="mono" href={link.href}>
+            {link.text}
+          </Link>
+        </div>
+      ))
+    }
+  </div>
+</SectionWrapper>
